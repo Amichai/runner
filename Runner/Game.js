@@ -12,7 +12,7 @@ var Game = (function () {
         Game.prototype.backgrounds = [];
         Game.prototype.backgrounds.push(new Background(ctx));
         Game.prototype.runner = new runner(ctx);
-        Game.prototype.theball = new ball(ctx);
+        Game.prototype.theball = new ball(ctx, Game.prototype.runner);
         document.onkeydown = checkKey;
 function checkKey(e) {
             e = e || window.event;

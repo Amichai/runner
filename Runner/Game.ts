@@ -16,7 +16,7 @@ class Game {
         Game.prototype.backgrounds.push(
             new Background(ctx));
         Game.prototype.runner = new runner(ctx);
-        Game.prototype.theball = new ball(ctx);
+        Game.prototype.theball = new ball(ctx, Game.prototype.runner);
         document.onkeydown = checkKey;
 
         function checkKey(e) {
@@ -30,18 +30,15 @@ class Game {
                 Game.prototype.action2();
             }
         }
-
         setInterval(this.start, 1000 / this.fps);
-
     }
 
-
-    backgrounds: Background[];
-    runner: runner;
-    theball: ball;
-    ctx: any;
-    width: number;
-    height: number;
+    private backgrounds: Background[];
+    private runner: runner;
+    private theball: ball;
+    private ctx: any;
+    private width: number;
+    private height: number;
 
     public action1(): void {
         if (!Game.prototype.runner.canJump()) {

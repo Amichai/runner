@@ -78,6 +78,7 @@ var runner = (function () {
             this.ctx.drawImage(this.kickingFrames[idx], 0, 300, 100, 100);
             if(idx == 14) {
                 this.runnerActivity = activity.running;
+                this.heightOffset = 0;
                 this.count = 0;
             }
         }

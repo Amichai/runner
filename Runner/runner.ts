@@ -44,11 +44,10 @@ class runner {
     }
 
 
-    runnerActivity: activity;
+    private runnerActivity: activity;
 
-
-    ctx: any;
-    count: number;
+    private ctx: any;
+    private count: number;
 
     public getFootPosX(): number {
         return 100;
@@ -103,6 +102,7 @@ class runner {
           );
             if (idx == 14) {
                 this.runnerActivity = activity.running;
+                this.heightOffset = 0;  
                 this.count = 0;
             }
         }
