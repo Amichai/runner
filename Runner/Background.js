@@ -8,7 +8,7 @@ var Background = (function () {
         this.sourceHeight = 1080;
         this.width = $('#canvas').attr('width');
         this.height = $('#canvas').attr('height');
-        this.stepSize = 2;
+        this.stepSize = 10;
     }
     Background.prototype.draw = function () {
         var clipX = this.stepSize * this.count++;

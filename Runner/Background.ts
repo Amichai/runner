@@ -9,7 +9,7 @@ class Background {
 
         this.width = $('#canvas').attr('width');
         this.height = $('#canvas').attr('height');
-        this.stepSize = 2;
+        this.stepSize = 10;
     }
 
     ctx: any;
