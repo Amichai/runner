@@ -43,13 +43,14 @@ var runner = (function () {
         img.src = path;
         return img;
     };
-    runner.prototype.getFootPosX = //width: number;
-    //height: number;
-    function () {
+    runner.prototype.getFootPosX = function () {
         return 100;
     };
     runner.prototype.getFootPosY = function () {
         return 400 - this.heightOffset;
+    };
+    runner.prototype.canJump = function () {
+        return this.heightOffset == 0;
     };
     runner.prototype.jump = function () {
         this.runnerActivity = activity.jumping;
@@ -69,6 +70,7 @@ var runner = (function () {
             this.ctx.drawImage(this.jumpingFrames[idx], 0, 300 - this.heightOffset, 130, 130);
             if(idx == 33) {
                 this.runnerActivity = activity.running;
+                this.heightOffset = 0;
                 this.count = 0;
             }
         } else if(this.runnerActivity == activity.kicking) {

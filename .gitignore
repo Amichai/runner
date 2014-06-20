@@ -2,3 +2,5 @@ Runner.v11.suo
 packages/
 Runner/bin/
 Runner/obj/
+Runner/Properties/PublishProfiles/gplatform.pubxml
+Runner/Properties/PublishProfiles/gplatform.pubxml.user

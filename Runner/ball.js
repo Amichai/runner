@@ -19,6 +19,9 @@ var ball = (function () {
         this.kickCount = 0;
         this.velocityUnit = 4;
     }
+    ball.prototype.canKick = function () {
+        return this.restingX;
+    };
     ball.prototype.draw = function () {
         this.ctx.save();
         this.ctx.translate(this.xPos, this.yPos);

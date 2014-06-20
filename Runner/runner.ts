@@ -32,7 +32,7 @@ class runner {
     }
 
 
-    private getFrame(pathBase: string, idx: number) : any {
+    private getFrame(pathBase: string, idx: number): any {
         var img = new Image();
         var asString = idx.toString();
         if (asString.length == 1) {
@@ -49,8 +49,6 @@ class runner {
 
     ctx: any;
     count: number;
-    //width: number;
-    //height: number;
 
     public getFootPosX(): number {
         return 100;
@@ -58,6 +56,10 @@ class runner {
 
     public getFootPosY(): number {
         return 400 - this.heightOffset;
+    }
+
+    public canJump(): bool {
+        return this.heightOffset == 0;
     }
 
     walkingFrames: any[];
@@ -82,15 +84,16 @@ class runner {
             this.ctx.drawImage(this.walkingFrames[idx], 0, 300,
                 100, 100
           );
-        } else if(this.runnerActivity == activity.jumping){
+        } else if (this.runnerActivity == activity.jumping) {
             var idx = (this.count++);
 
-            this.heightOffset = (34 * idx -(idx * idx)) / 2;
+            this.heightOffset = (34 * idx - (idx * idx)) / 2;
             this.ctx.drawImage(this.jumpingFrames[idx], 0, 300 - this.heightOffset,
                 130, 130
           );
             if (idx == 33) {
                 this.runnerActivity = activity.running;
+                this.heightOffset = 0;
                 this.count = 0;
             }
         } else if (this.runnerActivity == activity.kicking) {

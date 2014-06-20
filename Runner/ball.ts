@@ -42,6 +42,10 @@ class ball {
     kickCount: number;
     velocityUnit: number;
 
+    public canKick(): bool {
+        return this.restingX;
+    }
+
     draw(): void {
         this.ctx.save();
         this.ctx.translate(this.xPos, this.yPos);
@@ -50,7 +54,6 @@ class ball {
         this.ctx.restore();
         if (!this.restingX && !this.restingY) {
             //this.xPos = this.xPos + this.kickCount * this.vx - this.ax * (this.kickCount * this.kickCount);
-
             this.xPos = this.xPos + this.kickCount * this.vx - this.ax * (this.kickCount * this.kickCount);
 
         } else if (!this.restingX) {

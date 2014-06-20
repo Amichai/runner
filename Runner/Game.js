@@ -27,10 +27,16 @@ function checkKey(e) {
         setInterval(this.start, 1000 / this.fps);
     }
     Game.prototype.action1 = function () {
+        if(!Game.prototype.runner.canJump()) {
+            return;
+        }
         Game.prototype.runner.jump();
         Game.prototype.theball.runnerJumped();
     };
     Game.prototype.action2 = function () {
+        if(!Game.prototype.theball.canKick()) {
+            return;
+        }
         Game.prototype.runner.kick();
         Game.prototype.theball.kick();
     };

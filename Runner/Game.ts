@@ -44,11 +44,17 @@ class Game {
     height: number;
 
     public action1(): void {
+        if (!Game.prototype.runner.canJump()) {
+            return;
+        }
         Game.prototype.runner.jump();
         Game.prototype.theball.runnerJumped();
     }
 
     public action2(): void {
+        if (!Game.prototype.theball.canKick()) {
+            return;
+        }
         Game.prototype.runner.kick();
         Game.prototype.theball.kick();
     }
