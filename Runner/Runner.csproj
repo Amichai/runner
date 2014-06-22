@@ -128,6 +128,14 @@
     <Content Include="Content\kicking\Symbol 10013.png" />
     <Content Include="Content\kicking\Symbol 10014.png" />
     <Content Include="Content\kicking\Symbol 10015.png" />
+    <Content Include="Content\reanimations\fan.png" />
+    <Content Include="Content\reanimations\tile1.png" />
+    <Content Include="Content\reanimations\tile2.png" />
+    <Content Include="Content\reanimations\tile3.png" />
+    <Content Include="Content\reanimations\tile4.png" />
+    <Content Include="Content\reanimations\tile5.png" />
+    <Content Include="Content\reanimations\tile6.png" />
+    <Content Include="Content\reanimations\tile7.png" />
     <Content Include="Content\running\Symbol 10001.png" />
     <Content Include="Content\running\Symbol 10002.png" />
     <Content Include="Content\running\Symbol 10003.png" />
@@ -188,6 +196,10 @@
     <None Include="Properties\PublishProfiles\gplatform.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <TypeScriptCompile Include="runner.ts" />
+    <TypeScriptCompile Include="PlatformBuilder.ts" />
+    <Content Include="PlatformBuilder.js">
+      <DependentUpon>PlatformBuilder.ts</DependentUpon>
+    </Content>
     <Content Include="runner.js">
       <DependentUpon>runner.ts</DependentUpon>
     </Content>

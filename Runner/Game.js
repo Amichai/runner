@@ -1,3 +1,4 @@
+/// <reference path="PlatformBuilder.ts" />
 /// <reference path="ball.ts" />
 /// <reference path="runner.ts" />
 /// <reference path="Background.ts" />
@@ -13,7 +14,7 @@ var Game = (function () {
         Game.prototype.backgrounds.push(new Background(ctx));
         Game.prototype.runner = new runner(ctx);
         Game.prototype.theball = new ball(ctx, Game.prototype.runner);
-        document.onkeydown = checkKey;
+        Game.prototype.platform = new platformBuilder(ctx);
 function checkKey(e) {
             e = e || window.event;
             // right arrow
@@ -24,6 +25,7 @@ function checkKey(e) {
                 Game.prototype.action2();
             }
         }
+        document.onkeydown = checkKey;
         setInterval(this.start, 1000 / this.fps);
     }
     Game.prototype.action1 = function () {
@@ -47,6 +49,7 @@ function checkKey(e) {
         }
         Game.prototype.runner.draw();
         Game.prototype.theball.draw();
+        Game.prototype.platform.draw();
     };
     Game.prototype.update = function () {
     };
