@@ -60,10 +60,11 @@ var runner = (function () {
         this.runnerActivity = activity.kicking;
         this.count = 0;
     };
-    runner.prototype.draw = function () {
+    runner.prototype.draw = function (level) {
+        console.log('count: ' + this.count);
         if(this.runnerActivity == activity.running) {
             var idx = (this.count++ % 47);
-            this.ctx.drawImage(this.walkingFrames[idx], 0, 300, 100, 100);
+            this.ctx.drawImage(this.walkingFrames[idx], 0, 550 - level, 100, 100);
         } else if(this.runnerActivity == activity.jumping) {
             var idx = (this.count++);
             this.heightOffset = (34 * idx - (idx * idx)) / 2;

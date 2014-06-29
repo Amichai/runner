@@ -43,11 +43,13 @@ function checkKey(e) {
         Game.prototype.theball.kick();
     };
     Game.prototype.draw = function () {
+        var l = Game.prototype.platform.getPlatformLevel();
+        console.log('level: ' + l);
         this.ctx.clearRect(0, 0, Game.prototype.width, Game.prototype.height);
         for(var i = 0; i < Game.prototype.backgrounds.length; i++) {
             Game.prototype.backgrounds[i].draw();
         }
-        Game.prototype.runner.draw();
+        Game.prototype.runner.draw(l);
         Game.prototype.theball.draw();
         Game.prototype.platform.draw();
     };

@@ -77,10 +77,11 @@ class runner {
         this.count = 0;
     }
 
-    draw(): void {
+    draw(level: number): void {
+        console.log('count: ' + this.count);
         if (this.runnerActivity == activity.running) {
             var idx = (this.count++ % 47);
-            this.ctx.drawImage(this.walkingFrames[idx], 0, 300,
+            this.ctx.drawImage(this.walkingFrames[idx], 0, 550 - level,
                 100, 100
           );
         } else if (this.runnerActivity == activity.jumping) {

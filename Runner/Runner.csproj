@@ -135,7 +135,9 @@
     <Content Include="Content\reanimations\tile4.png" />
     <Content Include="Content\reanimations\tile5.png" />
     <Content Include="Content\reanimations\tile6.png" />
+    <Content Include="Content\reanimations\tile6level.txt" />
     <Content Include="Content\reanimations\tile7.png" />
+    <Content Include="Content\reanimations\tile7level.txt" />
     <Content Include="Content\running\Symbol 10001.png" />
     <Content Include="Content\running\Symbol 10002.png" />
     <Content Include="Content\running\Symbol 10003.png" />
