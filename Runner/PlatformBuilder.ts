@@ -48,22 +48,40 @@ class platformBuilder {
 class section1 {
     constructor(ctx: any, tiles: tile[]) {
         this.ctx = ctx;
-        this.tiles = tiles;
+        this.sectionTiles = tiles;
         this.xIdx = 0;
 
-        this.sectionWidth =
-            this.tiles[2].width + this.tiles[7].width;
+
+        this.sectionWidth = 0;
+        for (var i = 0; i < this.sectionTiles.length; i++) {
+            this.sectionWidth += this.sectionTiles[i].width;
+        }
     }
 
     private ctx: any;
-    private tiles: tile[];
+    private sectionTiles: tile[];
 
     public sectionWidth: number;
 
     public getPlatformLevel(count : number): number {
         console.log('this idx: ' + this.xOffset);
+        var inspectionIdx = 0;
+        var inspectionWidth = 0;
+        while (this.xOffset > inspectionWidth) {
+            inspectionWidth += this.sectionTiles[inspectionIdx].width;
+            inspectionIdx++;
+        }
+        return this.sectionTiles[inspectionIdx].getPlatformLevel(inspectionWidth - this.xOffset);
+    }
 
-        return this.tiles[6].getPlatformLevel(this.xOffset);
+    private getSectionIdx(idx : number) : number {
+        var inspectionIdx = 0;
+        var inspectionWidth = 0;
+        while (idx > inspectionWidth) {
+            inspectionWidth += this.sectionTiles[inspectionIdx].width;
+            inspectionIdx++;
+        }
+        return inspectionIdx;
     }
 
     private xIdx: number;
@@ -77,12 +95,16 @@ class section1 {
         //var t = this.tiles[1];
         //t.draw(this.ctx, this.xIdx, yOffset, mult);
         //this.xIdx += t.width;
+        var i1 = this.getSectionIdx(this.xOffset);
+        var i2 = this.getSectionIdx(this.xOffset + 600);
 
-        var t = this.tiles[6];
+
+
+        var t = this.sectionTiles[i1];
         t.draw(this.ctx, this.xIdx, yOffset, mult);
         this.xIdx += t.width;
 
-        var t = this.tiles[7];
+        var t = this.sectionTiles[i2];
         t.draw(this.ctx, this.xIdx, yOffset, mult);
         this.xIdx += t.width;
     }
